@@ -1,1 +1,15 @@
 <h1>新規メモ作成ページ</h1>
+
+<%= form_tag("/create") do %>
+    <div class="form-group">
+        <%= label_tag "form_title", "Title" %>
+        <%= text_field :memos, :title, id:"form_title", class:"form-control",placeholder:"メモの要約"%>
+    </div>
+    
+    <div class="form-group">
+        <%= label_tag "form_content", "Content" %>
+        <%= text_field :memos, :content, id:"form_content", class:"form-control",placeholder:"メモの内容" %>
+    </div>
+    
+    <%= submit_tag "作成" ,class:"btn btn-primary" %>
+<% end %>

@@ -1,5 +1,6 @@
 class MemosController < ApplicationController
     def index
+        @memos=Memo.all
         
     end
     
@@ -8,6 +9,7 @@ class MemosController < ApplicationController
     end
     
     def create
-        
+        Memo.create(title:params["memos"]["title"],content:params["memos"]["content"])
+        redirect_to "/"
     end
 end
