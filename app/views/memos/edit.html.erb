@@ -11,5 +11,10 @@
         <%= text_field :memos, :content, id:"form_content", class:"form-control",value: @memo.content%>
     </div>
     
+    <div class="form-group">
+        <%= label_tag "form_category", "Category" %>
+        <%= select_tag 'memos[category_id]', options_from_collection_for_select(@categories, :id, :category),class:"form-control",id:"form_category" %>
+    </div>
+    
     <%= submit_tag "更新" ,class:"btn btn-primary" %>
 <% end %>
