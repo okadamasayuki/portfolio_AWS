@@ -47,6 +47,7 @@ end
 
 group :production do
   gem 'mysql2'
+  gem 'unicorn_rails'
 end
 
 group :development do
