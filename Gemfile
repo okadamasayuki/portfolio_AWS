@@ -44,8 +44,19 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+<<<<<<< HEAD
   gem 'rspec-rails'
   gem 'database_cleaner'
+=======
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+end
+
+group :production, :staging do
+  gem 'unicorn'
+>>>>>>> 9728ea44f76b198d2a1f9dce039641c446c4d279
 end
 
 group :production do
