@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+使ってるもの
 
-Things you may want to cover:
+- Rails
+- MySQL
+- Docker(開発環境にRailsコンテナとMySQLコンテナ)
+- AWS(VPC,EC2,ElasticIP)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+使う予定のもの
+- CircleCI
+- Rails(通知機能)
+- Capistrano
+- Terraform
+- Lambda
