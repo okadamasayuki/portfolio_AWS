@@ -43,7 +43,7 @@ set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
-set :rbenv_ruby, '2.5.3'
+set :rbenv_ruby, '2.6.3'
 
 set :log_level, :debug
 
