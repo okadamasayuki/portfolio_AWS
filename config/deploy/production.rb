@@ -61,4 +61,4 @@
 #   }
 
 server '52.199.248.5', user: 'masa', roles: %w{app db web}
-set :ssh_options, keys: '~/.ssh/masa_key_rsa'  
+set :ssh_options, keys: '~/.ssh/masa_key_rsa'
