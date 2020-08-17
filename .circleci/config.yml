@@ -4,44 +4,43 @@ jobs:
     docker:
     - image: circleci/ruby:2.5.3-node-browsers
       environment:
-        - BUNDLER_VERSION: 2.0.2
+        - DB_HOST: 127.0.0.1
         - RAILS_ENV: 'test'
     - image: circleci/mysql:5.7
       environment:
-        - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-        - MYSQL_ROOT_HOST: '127.0.0.1'
+        MYSQL_DATABASE: circleci-example-for-rails_test
+        MYSQL_ALLOW_EMPTY_PASSWORD: true
+        MYSQL_ROOT_HOST: '%'
+        MYSQL_USER: root
 
     working_directory: ~/portfolio_AWS
 
 
     steps:
     - checkout
-
+    - run: gem update bundler
     - restore_cache:
         keys:
         - v1-dependencies-{{ checksum "Gemfile.lock" }}
         - v1-dependencies-
+    - run:
+        name: update bundler
+        command: |
+          gem update --system
+          gem install bundler
 
     - run:
         name: install dependencies
         command: |
-          gem install bundler -v 2.0.2
+          gem install bundler -v 2.0.1
           bundle install --jobs=4 --retry=3 --path vendor/bundle
 
     - save_cache:
         paths:
         - ./vendor/bundle
         key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-    # Database setup
-    - run: mv ./config/database.yml.ci ./config/database.yml
-
-    # Database setup
-    - run:
-        name: Databasesetup
-        command: |
-           bundle exec rake db:create
-           bundle exec rake db:schema:load
+    - run: bundle exec rake db:create
+    - run: bundle exec rake db:schema:load
 
     # run tests!
     - run:
